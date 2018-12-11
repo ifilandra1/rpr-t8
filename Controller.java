@@ -16,6 +16,7 @@ public TextField unosField;
 public SimpleStringProperty unos;
 public Button traziBtn;
 public ListView<String> lista;
+public Button stopBtn;
 
     public ObservableList<String> datoteke;
 
@@ -27,11 +28,14 @@ public ListView<String> lista;
 
     public void initialize() {
 unosField.textProperty().bindBidirectional(unos);
+stopBtn.setDisable(true);
 
 }
 
 
     public void traziAction(ActionEvent actionEvent) {
+        stopBtn.setDisable(false);
+        traziBtn.setDisable(true);
     File file = new File("C:\\Users\\User\\");
 
         new Thread(() -> {
@@ -50,6 +54,7 @@ unosField.textProperty().bindBidirectional(unos);
     }
     void pretraga(File file) {
 
+
         if(file.isFile()) {
 
             String s = file.getName();
@@ -66,6 +71,7 @@ unosField.textProperty().bindBidirectional(unos);
     }
 
 
-
-
+    public void StopAction(ActionEvent actionEvent) {
+//potrebno dodati prekidanje pretrage
+    }
 }
