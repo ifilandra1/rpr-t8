@@ -23,7 +23,7 @@
       <Label text="Uzorak:" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <TextField fx:id="unosField" GridPane.columnIndex="1" />
       <Button fx:id="traziBtn" mnemonicParsing="false" onAction="#traziAction" text="Traži" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <ListView fx:id="lista" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="1" />
+      <ListView fx:id="lista" onMouseClicked="#ClickTabela" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="1" />
       <Button fx:id="stopBtn" mnemonicParsing="false" onAction="#StopAction" text="Stop" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
    </children>
 </GridPane>
