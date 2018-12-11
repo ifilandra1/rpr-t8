@@ -6,21 +6,22 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
+import java.io.File;
+
 
 public class Controller {
 
 public TextField unosField;
 public SimpleStringProperty unos;
-public Button trazi;
+public Button traziBtn;
 public ListView<String> lista;
 
-    public ObservableList<String> datoteke = FXCollections.observableArrayList();
+    public ObservableList<String> datoteke;
 
     public Controller() {
-
     unosField= new TextField();
     unos=new SimpleStringProperty("");
-
+    datoteke= FXCollections.observableArrayList();
 }
 
     public void initialize() {
@@ -30,6 +31,28 @@ unosField.textProperty().bindBidirectional(unos);
 
 
     public void traziAction(ActionEvent actionEvent) {
+    File file = new File("C:\\Users\\user\\IdeaProjects\\tutorijal08");
+    pretraga(file);
+    lista.setItems(datoteke);
     }
+    void pretraga(File file) {
+
+        if(file.isFile()) {
+
+            String s = file.getName();
+           if(s.contains(unos.get() ) )datoteke.add(s);
+
+        }
+        if(file.isDirectory()){
+            for(File f: file.listFiles()) {
+                pretraga(f);
+            }
+
+        }
+
+    }
+
+
+
 
 }

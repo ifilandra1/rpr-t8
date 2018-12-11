@@ -21,7 +21,7 @@
    <children>
       <Label text="Uzorak:" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <TextField fx:id="unosField" GridPane.columnIndex="1" />
-      <Button fx:id="trazi" mnemonicParsing="false" onAction="#traziAction" text="Traži" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Button fx:id="traziBtn" mnemonicParsing="false" onAction="#traziAction" text="Traži" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <ListView fx:id="lista" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
    </children>
 </GridPane>
