@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.tutorijal08;
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,8 +32,20 @@ unosField.textProperty().bindBidirectional(unos);
 
 
     public void traziAction(ActionEvent actionEvent) {
-    File file = new File("C:\\Users\\user\\IdeaProjects\\tutorijal08");
-    pretraga(file);
+    File file = new File("C:\\Users\\User\\");
+
+        new Thread(() -> {
+            try {
+                pretraga(file);
+            }
+            catch(Exception e){
+
+            }
+
+        }).start();
+
+
+
     lista.setItems(datoteke);
     }
     void pretraga(File file) {
