@@ -21,7 +21,7 @@ public class Controller {
     public Button stopBtn;
     public ObservableList<String> datoteke;
 
-    File file = new File("C:\\Users\\User\\");
+    File file = new File(System.getProperty("user.home"));
     Thread t = new MojThread();
 
     public Controller() {
@@ -34,7 +34,6 @@ public class Controller {
         unosField.textProperty().bindBidirectional(unos);
         stopBtn.setDisable(true);
         datoteke = FXCollections.observableArrayList();
-
     }
 
 
