@@ -75,8 +75,6 @@ public class Controller {
             e.printStackTrace();
         }
 
-
-
     }
 
     public class MojThread extends Thread {
