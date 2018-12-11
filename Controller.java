@@ -27,21 +27,28 @@ public class Controller {
     public Controller() {
         unosField = new TextField();
         unos = new SimpleStringProperty("");
-        datoteke = FXCollections.observableArrayList();
+
     }
 
     public void initialize() {
         unosField.textProperty().bindBidirectional(unos);
         stopBtn.setDisable(true);
+        datoteke = FXCollections.observableArrayList();
 
     }
 
 
     public void traziAction(ActionEvent actionEvent) {
-        stopBtn.setDisable(false);
-        traziBtn.setDisable(true);
-        t.start();
-        lista.setItems(datoteke);
+
+            stopBtn.setDisable(false);
+            traziBtn.setDisable(true);
+
+            t = new MojThread();
+
+            t.start();
+            lista.setItems(datoteke);
+
+
     }
 
     public class MojThread extends Thread {
@@ -57,21 +64,23 @@ public class Controller {
 
     void pretraga(File file) {
 
-        if (!t.isInterrupted()) {
 
-            if (file.isFile()) {
+            if (!t.isInterrupted()) {
 
-                String s = file.getName();
-                if (s.contains(unos.get())) datoteke.add(s);
+                if (file.isFile()) {
 
-            }
-            if (file.isDirectory()) {
-                for (File f : file.listFiles()) {
-                    pretraga(f);
+                    String s = file.getName();
+                    if (s.contains(unos.get())) datoteke.add(s);
+
                 }
+                if (file.isDirectory()) {
+                    for (File f : file.listFiles()) {
+                        pretraga(f);
+                    }
 
+                }
             }
-        }
+
 
     }
 
@@ -81,5 +90,6 @@ public class Controller {
         traziBtn.setDisable(false);
 
         t.interrupt();
+
     }
 }
